@@ -1,0 +1,132 @@
+@page {
+  size: a4 portrait;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+    font-size: 9pt;
+    background: var(--brk-white);
+    print-color-adjust: exact;
+  }
+
+  .app,
+  .main {
+    display: block;
+    height: auto;
+  }
+
+  .sidebar,
+  .sidebar-handle,
+  .topbar,
+  .subtabs,
+  .tooltip,
+  #layer {
+    display: none !important;
+  }
+
+  .content {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .print-only {
+    display: block;
+  }
+
+  .print-header {
+    margin-bottom: 4mm;
+    font-size: 10pt;
+    font-weight: var(--fw-strong);
+    color: var(--brk-navy);
+  }
+
+  .grid {
+    gap: 3mm;
+  }
+
+  .card {
+    gap: 4px;
+    padding: 3mm;
+    border-radius: 8px;
+    break-inside: avoid;
+  }
+
+  .card-title {
+    font-size: 10pt;
+  }
+
+  .stat-value {
+    font-size: 13pt;
+  }
+
+  .data-table,
+  .data-table th {
+    font-size: 8pt;
+  }
+
+  .data-table td,
+  .data-table th {
+    padding: 2px 4px;
+  }
+
+  .badge,
+  .tag,
+  .chip-src {
+    height: auto;
+    font-size: 7.5pt;
+    line-height: 1.4;
+  }
+
+  .brief .chips {
+    display: none;
+  }
+
+  .brief {
+    gap: 2.5mm;
+  }
+
+  .brief .card {
+    gap: 2px;
+    padding: 2.5mm 3mm;
+  }
+
+  .brief p,
+  .brief li {
+    font-size: 7.6pt;
+    line-height: 1.3;
+  }
+
+  .brief .priorities {
+    gap: 3px;
+  }
+
+  .brief .data-table td,
+  .brief .data-table th {
+    padding: 1px 4px;
+    font-size: 7.3pt;
+    line-height: 1.25;
+  }
+
+  .brief .stat-value {
+    font-size: 11pt;
+  }
+
+  .brief .stat-label,
+  .brief .stat-detail {
+    font-size: 7.3pt;
+  }
+
+  .decision-card,
+  .event-card {
+    break-inside: avoid;
+  }
+
+  .chart-svg {
+    max-width: 100%;
+    height: auto;
+  }
+}

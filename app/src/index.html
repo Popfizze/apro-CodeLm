@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NOVA · Mémoire de projet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&family=Lato:wght@400;700;900&display=swap"
+    />
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/charts.css" />
+    <link rel="stylesheet" href="styles/screens.css" />
+    <link rel="stylesheet" href="styles/print.css" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+        <a class="brand" id="brand" href="#/vue" aria-label="Vue d'ensemble"></a>
+        <div class="brand-sub">Projet <b>NOVA</b></div>
+        <nav class="nav" id="nav"></nav>
+      </aside>
+      <button class="sidebar-handle" id="sidebar-handle" type="button" aria-label="Réduire le menu"></button>
+      <div class="main" id="main">
+        <header class="topbar" id="topbar"></header>
+        <nav class="subtabs" id="subtabs" aria-label="Sous-onglets"></nav>
+        <main class="content" id="content"></main>
+      </div>
+    </div>
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern
+          id="hatch-critical"
+          width="6"
+          height="6"
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(45)"
+        >
+          <rect class="hatch-bg" width="6" height="6" />
+          <line class="hatch-line" x1="0" y1="0" x2="0" y2="6" />
+        </pattern>
+      </defs>
+    </svg>
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+    <div id="layer"></div>
+    <script id="nova-data" type="application/json"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

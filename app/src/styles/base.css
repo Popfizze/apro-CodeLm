@@ -1,0 +1,123 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: var(--fw-text);
+  line-height: 1.5;
+  color: var(--brk-navy);
+  background: var(--brk-lav-5);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--brk-indigo);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--brk-electric);
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: 6px;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brk-electric);
+  outline-offset: 2px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+mark {
+  background: var(--brk-lav-3);
+  color: var(--brk-navy);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+q {
+  font-style: italic;
+  quotes: "« " " »";
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.muted {
+  color: var(--brk-muted);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--brk-muted);
+  overflow-wrap: anywhere;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.is-missing {
+  color: var(--brk-muted);
+  font-style: italic;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.print-only {
+  display: none;
+}

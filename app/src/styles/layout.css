@@ -1,0 +1,270 @@
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  height: 100dvh;
+  transition: grid-template-columns 0.28s var(--ease);
+}
+
+.app.is-collapsed {
+  grid-template-columns: var(--sidebar-rail) minmax(0, 1fr);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  color: var(--brk-white);
+  background: linear-gradient(180deg, var(--brk-navy) 0%, var(--brk-navy-2) 70%, var(--brk-navy) 100%);
+  cursor: pointer;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 66px;
+  padding: 18px 15px 4px;
+  color: var(--brk-white);
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: var(--brk-white);
+  text-decoration: none;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  color: var(--brk-white);
+}
+
+.brand-word {
+  font-size: 17px;
+  font-weight: var(--fw-strong);
+  letter-spacing: 0.01em;
+}
+
+.brand-sub {
+  padding: 0 16px 14px;
+  font-size: 12px;
+  color: var(--brk-lav-1);
+  white-space: nowrap;
+}
+
+.brand-sub b {
+  color: var(--brk-white);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 42px;
+  margin: 0 10px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  color: var(--brk-white);
+  font-size: 14.5px;
+  font-weight: var(--fw-badge);
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.nav-item .icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--brk-lav-1);
+}
+
+.nav-item:hover {
+  color: var(--brk-white);
+  text-decoration: none;
+  background: var(--brk-navy-hover);
+}
+
+.nav-item.is-active {
+  background: var(--brk-indigo);
+}
+
+.nav-item.is-active .icon {
+  stroke: var(--brk-white);
+}
+
+.nav-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.18s;
+}
+
+.nav-sep {
+  height: 1px;
+  margin: 8px 18px;
+  background: var(--brk-navy-hover);
+}
+
+.app.is-collapsed .brand-word,
+.app.is-collapsed .brand-sub,
+.app.is-collapsed .nav-label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app.is-collapsed .brand-sub {
+  height: 0;
+  padding: 0;
+}
+
+.sidebar-handle {
+  position: fixed;
+  top: 14px;
+  left: calc(var(--sidebar-w) + 8px);
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-info);
+  color: var(--brk-lav-1);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    left 0.28s var(--ease),
+    background-color 0.15s;
+}
+
+.sidebar-handle:hover {
+  color: var(--brk-indigo);
+  background: var(--brk-lav-4);
+}
+
+.sidebar-handle .icon {
+  transition: transform 0.28s var(--ease);
+}
+
+.app.is-collapsed .sidebar-handle {
+  left: calc(var(--sidebar-rail) + 8px);
+}
+
+.app.is-collapsed .sidebar-handle .icon {
+  transform: rotate(180deg);
+}
+
+.main {
+  display: grid;
+  grid-template-rows: var(--topbar-h) auto minmax(0, 1fr);
+  height: 100dvh;
+  min-width: 0;
+}
+
+.topbar {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 212px 260px auto;
+  gap: var(--gap);
+  align-items: center;
+  padding: 0 var(--page-pad) 0 calc(var(--page-pad) + 24px);
+  background: var(--brk-white);
+  border-bottom: 1px solid var(--brk-lav-2);
+}
+
+.crumbs {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.crumb {
+  font-size: 13px;
+  font-weight: var(--fw-info);
+}
+
+.crumb-sep {
+  color: var(--brk-muted);
+}
+
+.crumb-current {
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: var(--fw-title);
+  color: var(--brk-navy);
+  text-overflow: ellipsis;
+}
+
+.subtabs {
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  min-height: var(--tabs-h);
+  padding: 8px var(--page-pad) 0;
+}
+
+.subtabs-extra {
+  display: flex;
+  gap: 8px;
+}
+
+.content {
+  grid-row: 3;
+  min-height: 0;
+  padding: var(--gap) var(--page-pad);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.content.is-chat {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.span-5 {
+  grid-column: span 5;
+}
+
+.span-6 {
+  grid-column: span 6;
+}
+
+.span-7 {
+  grid-column: span 7;
+}
+
+.span-8 {
+  grid-column: span 8;
+}
+
+.span-12 {
+  grid-column: 1 / -1;
+}

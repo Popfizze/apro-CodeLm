@@ -1,0 +1,12 @@
+data/
+out/
+cache/
+app/dist/
+app/index.html
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+build/

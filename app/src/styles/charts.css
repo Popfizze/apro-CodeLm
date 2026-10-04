@@ -1,0 +1,323 @@
+.chart {
+  width: 100%;
+  min-width: 0;
+}
+
+.chart.is-fill {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.chart-svg {
+  display: block;
+  overflow: visible;
+}
+
+.chart-caption {
+  font-size: 12px;
+  color: var(--brk-muted);
+}
+
+.axis-text {
+  font-size: 11px;
+  fill: var(--brk-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.axis-text.is-critical {
+  fill: var(--brk-error);
+}
+
+.axis-text.is-ink {
+  font-weight: var(--fw-badge);
+  fill: var(--brk-navy);
+}
+
+.segment-label {
+  font-size: 11px;
+  font-weight: var(--fw-badge);
+  fill: var(--brk-navy);
+  pointer-events: none;
+}
+
+.segment-label.is-light {
+  fill: var(--brk-white);
+}
+
+.grid-line {
+  stroke: var(--brk-lav-2);
+  stroke-width: 1;
+}
+
+.mark {
+  cursor: pointer;
+  outline: none;
+}
+
+.mark:hover path,
+.mark:hover circle,
+.mark:focus-visible path,
+.mark:focus-visible circle {
+  opacity: 0.82;
+}
+
+.mark:focus-visible {
+  outline: 2px solid var(--brk-electric);
+}
+
+.hit {
+  fill: transparent;
+}
+
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border-radius: 3px;
+}
+
+.fill-decision {
+  fill: var(--cat-decision);
+  background: var(--cat-decision);
+}
+
+.fill-proposal {
+  fill: var(--cat-proposal);
+  background: var(--cat-proposal);
+}
+
+.fill-validation {
+  fill: var(--cat-validation);
+  background: var(--cat-validation);
+}
+
+.fill-other {
+  fill: var(--cat-other);
+  background: var(--cat-other);
+}
+
+.fill-commitment {
+  fill: var(--cat-decision);
+  background: var(--cat-decision);
+}
+
+.fill-recommendation {
+  fill: var(--cat-proposal);
+  background: var(--cat-proposal);
+}
+
+.fill-paid {
+  fill: var(--brk-indigo);
+  background: var(--brk-indigo);
+}
+
+.fill-pending {
+  fill: var(--brk-lav-1);
+  background: var(--brk-lav-1);
+}
+
+.fill-unauthorized {
+  fill: url("#hatch-critical");
+  background: repeating-linear-gradient(45deg, var(--brk-error) 0 2px, var(--brk-error-bg) 2px 6px);
+}
+
+.fill-track {
+  fill: var(--brk-lav-3);
+  background: var(--brk-lav-3);
+}
+
+.fill-indigo {
+  fill: var(--brk-indigo);
+}
+
+.fill-navy {
+  fill: var(--brk-navy);
+}
+
+.is-imported {
+  stroke: var(--brk-electric);
+  stroke-width: 1.5;
+  box-shadow: inset 0 0 0 1.5px var(--brk-electric);
+}
+
+.today-line {
+  stroke: var(--brk-navy);
+  stroke-width: 2;
+}
+
+.today-line.is-dashed {
+  stroke-dasharray: 4 3;
+}
+
+.brace {
+  fill: none;
+  stroke: var(--brk-navy);
+  stroke-width: 1.5;
+}
+
+.active-outline {
+  fill: none;
+  stroke: var(--brk-navy);
+  stroke-width: 2;
+}
+
+.axis-break {
+  fill: none;
+  stroke: var(--brk-muted);
+  stroke-width: 1.5;
+}
+
+.edge {
+  stroke: var(--brk-lav-2);
+  stroke-width: 2;
+}
+
+.chain-label {
+  font-size: 12px;
+  font-weight: var(--fw-title);
+  fill: var(--brk-magenta);
+}
+
+.node {
+  stroke-width: 1.5;
+}
+
+.node.is-critical {
+  fill: var(--brk-error-bg);
+  stroke: var(--brk-error);
+}
+
+.node.is-warning {
+  fill: var(--brk-warning-bg);
+  stroke: var(--brk-navy);
+}
+
+.node.is-info {
+  fill: var(--brk-sky-1);
+  stroke: var(--brk-navy);
+}
+
+.node.is-positive {
+  fill: var(--brk-lav-3);
+  stroke: var(--brk-indigo);
+}
+
+.node.is-neutral {
+  fill: var(--brk-grey-bg);
+  stroke: var(--brk-muted);
+}
+
+.node-glyph {
+  font-size: 10px;
+  font-weight: var(--fw-title);
+  fill: var(--brk-navy);
+  pointer-events: none;
+}
+
+.node-glyph.is-critical {
+  fill: var(--brk-error);
+}
+
+.node-final {
+  fill: var(--brk-white);
+  stroke: var(--brk-navy);
+  stroke-width: 2;
+}
+
+.matrix-cell {
+  fill: var(--brk-white);
+  stroke: var(--brk-lav-2);
+}
+
+.point-open {
+  fill: var(--brk-indigo);
+  stroke: var(--brk-white);
+  stroke-width: 2;
+}
+
+.point-closed {
+  fill: var(--brk-white);
+  stroke: var(--brk-muted);
+  stroke-width: 2;
+}
+
+.dot {
+  stroke: var(--brk-white);
+  stroke-width: 2;
+}
+
+.dumbbell-line {
+  stroke-width: 2;
+}
+
+.dumbbell-line.is-current {
+  stroke: var(--brk-electric);
+}
+
+.dumbbell-line.is-past {
+  stroke: var(--brk-muted);
+}
+
+.dumbbell-filled.is-current {
+  fill: var(--brk-electric);
+}
+
+.dumbbell-filled.is-past {
+  fill: var(--brk-muted);
+}
+
+.dumbbell-open {
+  fill: var(--brk-white);
+  stroke-width: 2;
+}
+
+.dumbbell-open.is-current {
+  stroke: var(--brk-electric);
+}
+
+.dumbbell-open.is-past {
+  stroke: var(--brk-muted);
+}
+
+.dot-open {
+  background: var(--brk-white);
+  border: 2px solid var(--brk-electric);
+  border-radius: 50%;
+}
+
+.dot-current {
+  background: var(--brk-electric);
+  border-radius: 50%;
+}
+
+.dot-past {
+  background: var(--brk-muted);
+  border-radius: 50%;
+}
+
+.meter {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  height: 8px;
+}
+
+.meter-seg {
+  height: 100%;
+  min-width: 2px;
+}
+
+.meter-seg:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.meter-seg:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}

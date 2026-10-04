@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nova-memory-pipeline"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pymupdf>=1.24",
+    "openpyxl>=3.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["pipeline*"]
+
+[tool.setuptools.package-data]
+"pipeline.jev" = ["contract.json"]
+"pipeline" = ["content/kb.json"]

@@ -1,0 +1,96 @@
+{
+  "passage": {
+    "subject": {
+      "type": "choice",
+      "instructions": "Dans le projet NOVA, quel est le sujet principal de ce passage?",
+      "criteria": {
+        "go_live_date": "Date de mise en production (15 vs 22 octobre), report, conditions de go-live, cible approuvée.",
+        "integration": "Connecteur interne / intégration (INT-101, jeton de service, recherches vides, chemin critique).",
+        "hosting_data_residency": "Région d'hébergement et localisation des données de production (East US vs Canada Central, ADR-007, architecture v1/v2, migration des ressources vers Canada Central).",
+        "security": "Sécurité : SSO, journalisation/audit administrateur (SEC-210), validation et acceptation sécurité.",
+        "accessibility": "Accessibilité : labels, contraste, navigation clavier dans les modales (ACC-301/302/303).",
+        "finance_invoices": "Factures et paiements (INV-001/002/003), montants facturés, payés, en validation, ligne contestée.",
+        "vendor_contract": "Contrat Boréal, budget, montant maximal autorisé, demandes de changement approuvées (CR-01), période, gestion des changements.",
+        "project_scope": "Portée de la phase 1 (SSO, demandes, pièces jointes, workflow, tableau de suivi, rapports) et objectif du projet.",
+        "scope_mobile": "Optimisation mobile avancée / CR-04 (18 000 $), report en phase 2, non approuvé.",
+        "governance_owner": "Responsable / chargé(e) de projet, transition Élodie Caron -> Nicolas Perron, rôles.",
+        "operations_runbook": "Exploitation : runbook de mise en production, rollback, validation post-déploiement (OPS-601), go exploitation.",
+        "data_quality": "Migration des données applicatives et doublons (lot MIG, DATA-401, idempotence, rejeu), distincte de la migration d'hébergement.",
+        "performance": "Performance / lenteur de la recherche (PERF-501).",
+        "status_reporting": "Rapports et communications de statut du projet (rapport de statut, message « au vert »).",
+        "noise": "Hors sujet NOVA : logistique, salutations, humour, autre projet, infolettre, formation, notes non officielles sans contenu exploitable."
+      }
+    },
+    "nature": {
+      "type": "choice",
+      "instructions": "Quelle est la nature de ce passage? Une proposition n'est pas une décision; un correctif annoncé n'est pas une validation.",
+      "criteria": {
+        "proposal": "Proposition, recommandation, estimation ou demande pas encore décidée : un fournisseur recommande, une demande de changement en brouillon, une option à l'étude.",
+        "decision": "Décision prise par une instance ou une personne habilitée : comité, chargé de projet, ADR accepté, décision de portée, condition fixée par le comité.",
+        "approval": "Approbation formelle explicite : « approuvé », demande de changement approuvée, accord du comité.",
+        "validation": "Vérification ou re-test par la partie responsable côté client (QA, sécurité, intégration) qui confirme qu'un livrable fonctionne : « validé », « re-test OK », ticket fermé par le responsable. Un fournisseur qui annonce son propre correctif ne valide pas.",
+        "delivery": "Annonce, par l'équipe qui réalise, qu'un correctif, un ajout, une livraison ou une migration est fait ou déployé (« déployé », « corrigé », « ajouté », « complété »), sans validation par le responsable.",
+        "finding": "Constat factuel observé : anomalie, mesure, résultat de test, statut constaté d'un ticket ou d'une activité (« toujours ouvert », « aucun résultat », « 6,9 s »).",
+        "commitment": "Engagement ou action assignée à une personne ou une équipe, y compris une activité planifiée avec responsable et dates dans un plan (« X doit... », « on vise... »).",
+        "risk": "Risque, alerte, réserve ou condition bloquante signalée, y compris une ligne de registre des risques.",
+        "owner_change": "Changement de responsable ou de rôle.",
+        "invoice": "Facture ou ligne de facture (montant facturé).",
+        "payment": "Statut de paiement (payée, libérée, retenue).",
+        "information": "Information de contexte sans portée décisionnelle : question, rappel, en-tête de courriel ou de ticket, description, mention d'une pièce jointe. Choisis information seulement si aucune autre nature ne convient.",
+        "noise": "Bruit sans valeur pour la mémoire du projet : salutation, signature, silence, logistique, humour, contenu d'un autre projet."
+      }
+    },
+    "authority": {
+      "type": "score",
+      "instructions": "Quel est le niveau d'autorité de cette source pour établir l'état officiel du projet?",
+      "criteria": [
+        "bruit : aucune autorité (hors sujet, blague, logistique, salutation)",
+        "informel : clavardage, note personnelle, brouillon, opinion, affirmation d'un tiers non responsable",
+        "opérationnel : ticket, plan de travail, registre, rapport de statut, courriel de suivi, compte rendu de suivi",
+        "formel/approuvé : décision ou position exprimée en comité de direction, document approuvé ou signé, ADR accepté, contrat, annonce officielle du responsable habilité"
+      ]
+    },
+    "has_deadline": {
+      "type": "noul",
+      "instructions": "Le passage mentionne-t-il une échéance ou une date cible pour une action ou un livrable?",
+      "criteria": {
+        "true": "Une échéance ou date cible est mentionnée.",
+        "false": "Aucune échéance."
+      }
+    },
+    "is_commitment_with_owner": {
+      "type": "noul",
+      "instructions": "Le passage contient-il un engagement ou une action assignée à un responsable identifiable?",
+      "criteria": {
+        "true": "Action + responsable identifiable.",
+        "false": "Pas d'engagement attribué."
+      }
+    },
+    "flags_risk": {
+      "type": "noul",
+      "instructions": "Le passage signale-t-il un risque, un problème ouvert, une réserve ou une condition bloquante?",
+      "criteria": {
+        "true": "Risque / problème / réserve signalé.",
+        "false": "Aucun risque signalé."
+      }
+    }
+  },
+  "pair": {
+    "contradicts": {
+      "type": "noul",
+      "instructions": "Sur le même objet, l'énoncé B contredit-il l'énoncé A : faits, statuts, dates, montants, portée ou responsables incompatibles (ils ne peuvent pas être vrais en même temps)?",
+      "criteria": {
+        "true": "B contredit A (par exemple « complété » ou « au vert » contre « ouvert » ou « en validation », deux dates ou deux responsables différents pour la même chose).",
+        "false": "B est compatible avec A."
+      }
+    },
+    "supersedes": {
+      "type": "noul",
+      "instructions": "L'énoncé B remplace-t-il ou rend-il obsolète l'énoncé A (décision plus récente ou plus autoritaire, statut mis à jour)? Une proposition ne remplace jamais une décision; un correctif annoncé ne vaut pas validation.",
+      "criteria": {
+        "true": "B remplace A.",
+        "false": "A reste valide malgré B."
+      }
+    }
+  }
+}
