@@ -1,0 +1,140 @@
+{
+  "method": "combination",
+  "label": "Combinaison interne/externe par segment et régime (retenue)",
+  "definition": "Hausse annualisée du loyer effectif (sRentEffective) à unité constante : chaque unité (sPropCode + sUnitCode) comparée à son bail précédent; médiane sur toutes les paires comparables (premiers baux et paires hors filtre d'écart exclus), renouvellements et relocations selon leur part observée.",
+  "forecast_year": 2026,
+  "data_as_of": "2025-12-31",
+  "information_cutoff": "fin janvier de l'année cible",
+  "parameters": {
+    "internal_weight": 0.5,
+    "external_weight": 0.5,
+    "min_gap_years": 0.5,
+    "max_gap_years": 2.5,
+    "new_building_max_age_years": 5,
+    "ontario_exemption_date": "2018-11-15",
+    "concession_drag": "écart contractuel − effectif du segment l'année précédente, supposé persistant",
+    "aggregation": "médiane par bail des paires de l'année précédente déplacées de la révision de leur segment"
+  },
+  "anchors": {
+    "tal_pct": 3.1,
+    "tal_method": "nouvelle méthode — pourcentage de base",
+    "ontario_guideline_pct": 2.1,
+    "cpi_rent_previous_year_pct": {
+      "ON": 4.3,
+      "QC": 7.75
+    },
+    "building_regimes": {
+      "carlyle": "Section F : immeuble de 5 ans ou moins, loyer non fixé par le TAL",
+      "dj1": "TAL : taux de référence (immeuble de plus de 5 ans)",
+      "dj2": "Section F : immeuble de 5 ans ou moins, loyer non fixé par le TAL",
+      "levesque": "TAL : taux de référence (immeuble de plus de 5 ans)",
+      "metcalfe": "Ontario : exemptée de la ligne directrice (premier bail après le 2018-11-15)",
+      "stelz1": "TAL : taux de référence (immeuble de plus de 5 ans)",
+      "stelz2": "TAL : taux de référence (immeuble de plus de 5 ans)",
+      "stelz3": "Section F : immeuble de 5 ans ou moins, loyer non fixé par le TAL",
+      "wsp1": "Section F : immeuble de 5 ans ou moins, loyer non fixé par le TAL"
+    }
+  },
+  "segments": [
+    {
+      "province": "ON",
+      "segment": "relocation",
+      "pairs": 54,
+      "internal_contract_pct": 8.96,
+      "internal_effective_pct": 5.45,
+      "concession_drag_pp": 3.51,
+      "forecast_contract_pct": 6.63,
+      "central_pct": 3.12,
+      "weight": 0.0692
+    },
+    {
+      "province": "ON",
+      "segment": "renouvellement",
+      "pairs": 63,
+      "internal_contract_pct": 6.25,
+      "internal_effective_pct": 2.46,
+      "concession_drag_pp": 3.79,
+      "forecast_contract_pct": 5.27,
+      "central_pct": 1.49,
+      "weight": 0.0808
+    },
+    {
+      "province": "QC",
+      "segment": "relocation",
+      "pairs": 253,
+      "internal_contract_pct": 8.98,
+      "internal_effective_pct": 5.8,
+      "concession_drag_pp": 3.18,
+      "forecast_contract_pct": 8.36,
+      "central_pct": 5.19,
+      "weight": 0.3244
+    },
+    {
+      "province": "QC",
+      "segment": "renouvellement",
+      "pairs": 410,
+      "internal_contract_pct": 6.43,
+      "internal_effective_pct": 2.97,
+      "concession_drag_pp": 3.46,
+      "forecast_contract_pct": 6.15,
+      "central_pct": 2.73,
+      "weight": 0.5256
+    }
+  ],
+  "segment_anchors": [
+    {
+      "province": "ON",
+      "segment": "relocation",
+      "anchor_source": "IPC loyers ON 2025",
+      "pairs": 54,
+      "anchor_pct": 4.3,
+      "revision_pp": -2.33,
+      "central_pct": 3.12
+    },
+    {
+      "province": "ON",
+      "segment": "renouvellement",
+      "anchor_source": "IPC loyers ON 2025",
+      "pairs": 63,
+      "anchor_pct": 4.3,
+      "revision_pp": -0.97,
+      "central_pct": 1.49
+    },
+    {
+      "province": "QC",
+      "segment": "relocation",
+      "anchor_source": "IPC loyers QC 2025",
+      "pairs": 253,
+      "anchor_pct": 7.75,
+      "revision_pp": -0.62,
+      "central_pct": 5.19
+    },
+    {
+      "province": "QC",
+      "segment": "renouvellement",
+      "anchor_source": "IPC loyers QC 2025",
+      "pairs": 232,
+      "anchor_pct": 7.75,
+      "revision_pp": 0.66,
+      "central_pct": 3.58
+    },
+    {
+      "province": "QC",
+      "segment": "renouvellement",
+      "anchor_source": "taux du TAL 2026",
+      "pairs": 178,
+      "anchor_pct": 3.1,
+      "revision_pp": -1.67,
+      "central_pct": 1.34
+    }
+  ],
+  "forecast": {
+    "central_pct": 3.07,
+    "low_pct": 1.09,
+    "high_pct": 4.92
+  },
+  "backtest_mae_pp": {
+    "2023_2025": 1.14,
+    "2021_2025": 1.35
+  }
+}
