@@ -1,0 +1,14 @@
+data/
+*.zip
+results/
+cache/
+app/app_data.js
+app/crops/
+app/uploads/
+app/reports/
+
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/

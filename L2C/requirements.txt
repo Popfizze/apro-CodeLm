@@ -1,0 +1,12 @@
+pymupdf>=1.24
+numpy>=1.26
+pydantic>=2.6
+openpyxl>=3.1
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+nbformat>=5.9
+nbclient>=0.10
+ipykernel>=6.29
+matplotlib>=3.8
+pandas>=2.1

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "l2c-verif"
+version = "1.0.0"
+description = "Verification of rebar shop drawings against structural plans"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pymupdf>=1.24",
+    "numpy>=1.26",
+    "pydantic>=2.6",
+    "openpyxl>=3.1",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+notebook = [
+    "nbformat>=5.9",
+    "nbclient>=0.10",
+    "ipykernel>=6.29",
+    "matplotlib>=3.8",
+    "pandas>=2.1",
+]
+
+[project.scripts]
+l2c-verif = "l2c_verif.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["l2c_verif*"]
